@@ -197,7 +197,18 @@ class Unmined {
                     scale: item.imageScale
                 }));
             }
-            if (item.text) {                               
+            if (item.text) {    
+                style2.setText(new ol.style.Text({
+                    text: item.text,
+                    font: item.font,
+                    offsetX: (item.offsetX + 3),
+                    offsetY: (item.offsetY + 3),
+                    fill: item.textColor ? new ol.style.Fill({
+                        color: "black"
+                    }) : null,
+                    padding: item.textPadding ?? [2, 4, 2, 4]
+                }));
+                                           
                 style.setText(new ol.style.Text({
                     text: item.text,
                     font: item.font,
@@ -220,27 +231,7 @@ class Unmined {
                     }) : null,
                 }));
 
-                style2.setText(new ol.style.Text({
-                    text: item.text,
-                    font: item.font,
-                    offsetX: (item.offsetX + 3),
-                    offsetY: (item.offsetY + 3),
-                    fill: item.textColor ? new ol.style.Fill({
-                        color: "black"
-                    }) : null,
-                    padding: item.textPadding ?? [2, 4, 2, 4],
-                    stroke: item.textStrokeColor ? new ol.style.Stroke({
-                        color: item.textStrokeColor,
-                        width: item.textStrokeWidth
-                    }) : null,
-                    backgroundFill: item.textBackgroundColor ? new ol.style.Fill({
-                        color: item.textBackgroundColor
-                    }) : null,
-                    backgroundStroke: item.textBackgroundStrokeColor ? new ol.style.Stroke({
-                        color: item.textBackgroundStrokeColor,
-                        width: item.textBackgroundStrokeWidth
-                    }) : null,
-                }));
+
             }
 
             feature2.setStyle(style2);
