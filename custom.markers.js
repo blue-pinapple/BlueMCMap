@@ -49,12 +49,12 @@ UnminedCustomMarkers = {
             z: 0,
             image: "house.pin.png",
             imageAnchor: [0.5, 1],
-            imageScale: 0.5,
+            imageScale: 0.3,
             text: "Spawn",
             textColor: "white", 
             offsetX: 0,
             offsetY: 20,
-            font: "20px MinecraftiaRegular, sans-serif",
+            font: "regular 20px MinecraftiaRegular, sans-serif",
         },
 
         // Example 3: Text only
@@ -66,7 +66,7 @@ UnminedCustomMarkers = {
             imageScale: 0.5,
             offsetX: 0,
             offsetY: 0, 
-            font: "15px MinecraftiaRegular, sans serif",
+            font: "regular 15px MinecraftiaRegular, sans serif",
         },
 
         // add your markers here
