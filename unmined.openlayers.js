@@ -183,15 +183,21 @@ class Unmined {
             var feature = new ol.Feature({
                 geometry: new ol.geom.Point(ol.proj.transform([longitude, latitude], dataProjection, viewProjection))
             });
+            var feature2 = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([longitude, latitude], dataProjection, viewProjection))
+            });
 
             var style = new ol.style.Style();
+            var style2 = new ol.style.Style();
+
             if (item.image) {
                 style.setImage(new ol.style.Icon({
                     src: item.image,
                     anchor: item.imageAnchor,
                     scale: item.imageScale
                 }));
-            } else if (item.text) {                               
+            }
+            if (item.text) {                               
                 style.setText(new ol.style.Text({
                     text: item.text,
                     font: item.font,
@@ -214,7 +220,7 @@ class Unmined {
                     }) : null,
                 }));
 
-                style.setText(new ol.style.Text({
+                style2.setText(new ol.style.Text({
                     text: item.text,
                     font: item.font,
                     offsetX: (item.offsetX - 10),
@@ -238,8 +244,12 @@ class Unmined {
             }
 
             feature.setStyle(style);
+            feature2.setStyle(style2);
+
 
             features.push(feature);
+            features.push(feature2);
+
         }
 
         var vectorSource = new ol.source.Vector({
