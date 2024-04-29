@@ -201,8 +201,8 @@ class Unmined {
                 style.setText(new ol.style.Text({
                     text: item.text,
                     font: item.font,
-                    offsetX: (item.offsetX + 3),
-                    offsetY: (item.offsetY + 3),
+                    offsetX: (item.offsetX + 2),
+                    offsetY: (item.offsetY + 2),
                     fill: item.textColor ? new ol.style.Fill({
                         color: "black"
                     }) : null,
