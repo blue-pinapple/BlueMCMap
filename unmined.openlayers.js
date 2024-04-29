@@ -223,10 +223,10 @@ class Unmined {
                 style2.setText(new ol.style.Text({
                     text: item.text,
                     font: item.font,
-                    offsetX: (item.offsetX - 10),
-                    offsetY: (item.offsetY - 10),
+                    offsetX: (item.offsetX + 3),
+                    offsetY: (item.offsetY + 3),
                     fill: item.textColor ? new ol.style.Fill({
-                        color: "red"
+                        color: "black"
                     }) : null,
                     padding: item.textPadding ?? [2, 4, 2, 4],
                     stroke: item.textStrokeColor ? new ol.style.Stroke({
@@ -243,12 +243,11 @@ class Unmined {
                 }));
             }
 
-            feature.setStyle(style);
             feature2.setStyle(style2);
+            feature.setStyle(style);
 
-
-            features.push(feature);
             features.push(feature2);
+            features.push(feature);
 
         }
 
