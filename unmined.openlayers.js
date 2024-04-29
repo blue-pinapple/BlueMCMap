@@ -198,7 +198,7 @@ class Unmined {
                 }));
             }
             if (item.text) {    
-                style2.setText(new ol.style.Text({
+                style.setText(new ol.style.Text({
                     text: item.text,
                     font: item.font,
                     offsetX: (item.offsetX + 3),
@@ -209,7 +209,7 @@ class Unmined {
                     padding: item.textPadding ?? [2, 4, 2, 4]
                 }));
 
-                style.setText(new ol.style.Text({
+                style2.setText(new ol.style.Text({
                     text: item.text,
                     font: item.font,
                     offsetX: item.offsetX,
