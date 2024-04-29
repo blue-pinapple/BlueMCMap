@@ -185,14 +185,13 @@ class Unmined {
             });
 
             var style = new ol.style.Style();
-            if (item.image)
+            if (item.image) {
                 style.setImage(new ol.style.Icon({
                     src: item.image,
                     anchor: item.imageAnchor,
                     scale: item.imageScale
                 }));
-
-            if (item.text) {                               
+            } else if (item.text) {                               
                 style.setText(new ol.style.Text({
                     text: item.text,
                     font: item.font,
@@ -214,11 +213,12 @@ class Unmined {
                         width: item.textBackgroundStrokeWidth
                     }) : null,
                 }));
+
                 style.setText(new ol.style.Text({
                     text: item.text,
                     font: item.font,
-                    offsetX: item.offsetX - 10,
-                    offsetY: item.offsetY - 10,
+                    offsetX: (item.offsetX - 10),
+                    offsetY: (item.offsetY - 10),
                     fill: item.textColor ? new ol.style.Fill({
                         color: "red"
                     }) : null,
