@@ -54,7 +54,7 @@ UnminedCustomMarkers = {
             textColor: "white", 
             offsetX: 0,
             offsetY: 20,
-            font: "regular 20px MinecraftiaRegular, sans-serif",
+            font: "20px Minecraftia, sans-serif",
         },
 
         // Example 3: Text only
@@ -66,7 +66,7 @@ UnminedCustomMarkers = {
             imageScale: 0.5,
             offsetX: 0,
             offsetY: 0, 
-            font: "regular 15px MinecraftiaRegular, sans serif",
+            font: "15px Minecraftia, sans serif",
         },
 
         // add your markers here
