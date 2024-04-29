@@ -214,6 +214,27 @@ class Unmined {
                         width: item.textBackgroundStrokeWidth
                     }) : null,
                 }));
+                style.setText(new ol.style.Text({
+                    text: item.text,
+                    font: item.font,
+                    offsetX: item.offsetX - 10,
+                    offsetY: item.offsetY - 10,
+                    fill: item.textColor ? new ol.style.Fill({
+                        color: "red"
+                    }) : null,
+                    padding: item.textPadding ?? [2, 4, 2, 4],
+                    stroke: item.textStrokeColor ? new ol.style.Stroke({
+                        color: item.textStrokeColor,
+                        width: item.textStrokeWidth
+                    }) : null,
+                    backgroundFill: item.textBackgroundColor ? new ol.style.Fill({
+                        color: item.textBackgroundColor
+                    }) : null,
+                    backgroundStroke: item.textBackgroundStrokeColor ? new ol.style.Stroke({
+                        color: item.textBackgroundStrokeColor,
+                        width: item.textBackgroundStrokeWidth
+                    }) : null,
+                }));
             }
 
             feature.setStyle(style);
