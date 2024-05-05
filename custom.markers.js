@@ -42,38 +42,30 @@ UnminedCustomMarkers = {
 
     markers: [
 
-        // Example 1: Simple marker
-        {
-            x: -200,
-            z: -200,
-            image: "custom.pin.png",
-            imageAnchor: [0.5, 1],
-            imageScale: 0.5,
-        },
 
         // Example 2: Marker with text
         {
             x: 0,
             z: 0,
-            image: "custom.pin.png",
+            image: "house.pin.png",
             imageAnchor: [0.5, 1],
-            imageScale: 0.5,
-            text: "Marker with text",
-            textColor: "red", 
+            imageScale: 0.15,
+            text: "Spawn",
+            textColor: "white", 
             offsetX: 0,
             offsetY: 20,
-            font: "bold 20px Calibri,sans serif",
+            font: "20px Minecraftia, sans-serif",
         },
 
         // Example 3: Text only
         {
-            x: 200,
-            z: 200,
-            text: "Text only", 
-            textColor: "yellow", 
+            x: -24,
+            z: 337,
+            text: "Main Comunity", 
+            textColor: "white", 
             offsetX: 0,
             offsetY: 0, 
-            font: "bold 50px Calibri,sans serif",
+            font: "15px Minecraftia, sans serif",
         },
 
         // add your markers here
