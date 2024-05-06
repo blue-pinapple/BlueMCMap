@@ -73,11 +73,11 @@
 
 <body>
     <div id="map"></div>
-    <div class="ol-mouse-position" id="buttons"><a href="#night mode" >Night Mode</a> <a href="#tiles">Normal</a></div>
+    <div class="ol-mouse-position" id="buttons"><a href="#night mode" >Night Mode</a> | <a href="#portals">nether portal locations </a> | <a href="#tiles">Normal</a></div>
 
     <script>
                 var Anchors = document.getElementsByTagName("a");
-
+    
 for (var i = 0; i < Anchors.length ; i++) {
     console.log("hi")
     Anchors[i].addEventListener("click", 
@@ -104,7 +104,11 @@ for (var i = 0; i < Anchors.length ; i++) {
         if (UnminedPlayers && UnminedPlayers.length > 0) {
             UnminedMapProperties.markers = UnminedMapProperties.markers.concat(unmined.createPlayerMarkers(UnminedPlayers));
         }
-        const path = window.location.hash.replace('#','')
+        var path = window.location.hash.replace('#','')
+        if (path.hash == '') {
+            path = "tiles"
+        }
+
         console.log(path)
         unmined.map('map', UnminedMapProperties, UnminedRegions,path);
 
