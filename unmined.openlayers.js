@@ -1,6 +1,6 @@
 class Unmined {
 
-    map(mapId, options, regions) {
+    map(mapId, options, regions, tilesloc) {
 
         const dpiScale = window.devicePixelRatio ?? 1.0;
 
@@ -111,7 +111,7 @@ class Unmined {
                             && tileX <= maxTileX
                             && tileY <= maxTileY
                             && hasTile()) {
-                            const url = ('tiles/zoom.{z}/{xd}/{yd}/tile.{x}.{y}.' + options.imageFormat)
+                            const url = (tilesloc+'/zoom.{z}/{xd}/{yd}/tile.{x}.{y}.' + options.imageFormat)
                                 .replace('{z}', worldZoom)
                                 .replace('{yd}', Math.floor(tileY / 10))
                                 .replace('{xd}', Math.floor(tileX / 10))

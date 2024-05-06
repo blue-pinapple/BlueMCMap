@@ -63,12 +63,32 @@
             border-radius: 3px;
             box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
         }
+        #buttons {
+            bottom: 8px;
+            top: auto;
+        }
     </style>
 
 </head>
 
 <body>
     <div id="map"></div>
+    <div class="ol-mouse-position" id="buttons"><a href="#night mode" >Night Mode</a> <a href="#tiles">Normal</a></div>
+
+    <script>
+                var Anchors = document.getElementsByTagName("a");
+
+for (var i = 0; i < Anchors.length ; i++) {
+    console.log("hi")
+    Anchors[i].addEventListener("click", 
+        function (event) {
+            console.log("hi")
+            window.location = this.href;
+            location.reload()
+        }, 
+        false);
+}
+    </script>
 
     <script type="text/javascript">
 
@@ -77,14 +97,17 @@
         if (UnminedCustomMarkers && UnminedCustomMarkers.isEnabled && UnminedCustomMarkers.markers) {
             UnminedMapProperties.markers = UnminedMapProperties.markers.concat(UnminedCustomMarkers.markers);
         }
-        
+   
+
         let unmined = new Unmined();
 
         if (UnminedPlayers && UnminedPlayers.length > 0) {
             UnminedMapProperties.markers = UnminedMapProperties.markers.concat(unmined.createPlayerMarkers(UnminedPlayers));
         }
+        const path = window.location.hash.replace('#','')
+        console.log(path)
+        unmined.map('map', UnminedMapProperties, UnminedRegions,path);
 
-        unmined.map('map', UnminedMapProperties, UnminedRegions);
 
     </script>
 </body>
