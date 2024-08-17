@@ -4,7 +4,7 @@
 <head>
     <link href="https://fonts.cdnfonts.com/css/minecraft-3" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-                                
+
     <title>uNmINeD</title>
 
     <meta charset="UTF-8" />
@@ -24,7 +24,9 @@
     <script type="text/javascript" src="unmined.map.properties.js"></script>
     <script type="text/javascript" src="unmined.map.regions.js"></script>
     <script type="text/javascript" src="unmined.map.players.js"></script>
-
+    <script type="text/javascript">
+        var UnminedMapProperties2 = UnminedMapProperties
+    </script>
     <!-- Custom markers -->
     <script type="text/javascript" src="custom.markers.js"></script>
 
@@ -63,6 +65,7 @@
             border-radius: 3px;
             box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
         }
+
         #buttons {
             bottom: 8px;
             top: auto;
@@ -73,22 +76,24 @@
 
 <body>
     <div id="map"></div>
-    <div class="ol-mouse-position" id="buttons"><a href="#night mode" >Night Mode</a> | <a href="#portals">nether portal locations </a> | <a href="#tiles">Normal</a></div>
+    <div class="ol-mouse-position" id="buttons"><a href="#night mode">Night Mode</a> | <a href="#portals">nether portal
+            locations </a> | <a href="#tiles">Normal</a></div>
 
     <script>
-                var Anchors = document.getElementsByTagName("a");
-    
-for (var i = 0; i < Anchors.length ; i++) {
-    console.log("hi")
-    Anchors[i].addEventListener("click", 
-        function (event) {
+        var Anchors = document.getElementsByTagName("a");
+
+        for (var i = 0; i < Anchors.length; i++) {
             console.log("hi")
-            window.location = this.href;
-            location.reload()
-        }, 
-        false);
-}
+            Anchors[i].addEventListener("click",
+                function (event) {
+                    console.log("hi")
+                    window.location = this.href;
+                    location.reload()
+                },
+                false);
+        }
     </script>
+    <script type="text/javascript" src="unmined.map.properties.js"></script>
 
     <script type="text/javascript">
 
@@ -97,20 +102,20 @@ for (var i = 0; i < Anchors.length ; i++) {
         if (UnminedCustomMarkers && UnminedCustomMarkers.isEnabled && UnminedCustomMarkers.markers) {
             UnminedMapProperties.markers = UnminedMapProperties.markers.concat(UnminedCustomMarkers.markers);
         }
-   
+
 
         let unmined = new Unmined();
 
         if (UnminedPlayers && UnminedPlayers.length > 0) {
             UnminedMapProperties.markers = UnminedMapProperties.markers.concat(unmined.createPlayerMarkers(UnminedPlayers));
         }
-        var path = window.location.hash.replace('#','')
+        var path = window.location.hash.replace('#', '')
         if (path.hash == '') {
             path = "tiles"
         }
 
         console.log(path)
-        unmined.map('map', UnminedMapProperties, UnminedRegions,path);
+        unmined.map('map', UnminedMapProperties, UnminedRegions, path);
 
 
     </script>
