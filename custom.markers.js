@@ -69,7 +69,30 @@ UnminedCustomMarkers = {
         },
 
         // add your markers here
-
+        {
+            x: -286.959869142667,
+            z: 563.328642525922,
+            image: "items/minecraft_gunpowder.png",
+            imageAnchor: [.5, .5],
+            imageScale: .5,
+            text: "Creaper Farm",
+            textColor: "white", 
+            offsetX: 0,
+            offsetY: 20,
+            font: "12px Minecraftia, sans-serif",
+        },
+        {
+            x: -64.74459281854790,
+            z: 1775.300000011920,
+            image: "items/minecraft_mossy_stone_bricks.png",
+            imageAnchor: [.5, .5],
+            imageScale: .5,
+            text: "Stronghold Entrance",
+            textColor: "white", 
+            offsetX: 0,
+            offsetY: 20,
+            font: "12px Minecraftia, sans-serif",
+        },
 
 
 
