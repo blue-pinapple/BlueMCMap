@@ -77,7 +77,7 @@
 <body>
     <div id="map"></div>
     <div class="ol-mouse-position" id="buttons"><a href="#night mode">Night Mode</a> | <a href="#portals">nether portal
-            locations </a> | <a href="#tiles">Normal</a></div>
+            locations </a> | <a href="#tiles">Normal</a> <p id="N_Cords">Nether Cords: </p></div>
 
     <script>
         var Anchors = document.getElementsByTagName("a");
@@ -116,9 +116,23 @@
 
         console.log(path)
         unmined.map('map', UnminedMapProperties, UnminedRegions, path);
+        var observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                var pos = mutation.target.textContent
+                pos.split(", ")
+                pos = pos.split(", ");
+                let x = Math.round(parseInt(pos[0])/8)
+                let y = Math.round(parseInt(pos[1])/8)
+                document.getElementById("N_Cords").innerHTML = "Nether Cords: " + x +", " + y
 
-    var pos1 = document.getElementsByClassName("ol-mouse-position")[0]
-    console.log(pos1.innerHTML)
+            });
+        });
+
+        var config = { characterData: true, subtree: true };
+        observer.observe(document.getElementsByClassName("ol-mouse-position")[0], config);
+
+        var pos1 = document.getElementsByClassName("ol-mouse-position")[0]
+        console.log(pos1.innerHTML)
     </script>
 </body>
 
