@@ -71,13 +71,55 @@
             top: auto;
         }
     </style>
+    <script>
+        const intervalID = setInterval(myCallback, 500);
+
+function myCallback() {
+    let elements = document.querySelector(".ol-mouse-position")
+    let pos = elements.textContent;
+                    pos = pos.split(", ");
+                    let x = Math.round(parseInt(pos[0]) / 8);
+                    let y = Math.round(parseInt(pos[1]) / 8);
+                    console.log(x, y);
+                    document.getElementById("N_Cords").innerHTML = "Nether Cords: " + x + ", " + y;
+}
+        function fish() {
+      
+            console.log("hi2")
+            console.log(path)
+            var observer = new MutationObserver(function (mutations) {
+                console.log("banana3");
+                mutations.forEach(function (mutation) {
+                    console.log("banana");
+                    let pos = mutation.target.textContent;
+                    pos = pos.split(", ");
+                    let x = Math.round(parseInt(pos[0]) / 8);
+                    let y = Math.round(parseInt(pos[1]) / 8);
+                    console.log(x, y);
+                    document.getElementById("N_Cords").innerHTML = "Nether Cords: " + x + ", " + y;
+
+                });
+            });
+            console.log(observer)
+
+            var config = { characterData: true, subtree: true, attributes: true };
+            
+            let elements = document.querySelector(".ol-mouse-position")
+            console.log(elements)
+            observer.observe(elements, config);
+        
+        }
+    </script>
 
 </head>
 
 <body>
     <div id="map"></div>
-    <div class="ol-mouse-position" id="buttons"><a href="#night mode">Night Mode</a> | <a href="#portals">nether portal
-            locations </a> | <a href="#tiles">Normal</a> <p id="N_Cords">Nether Cords: </p></div>
+    <div class="ol-mouse-position" id="buttons"><a href="#night mode">Night Mode</a> | <a
+            href="#portals">nether portal
+            locations </a> | <a href="#tiles">Normal</a>
+        <p id="N_Cords" >Nether Cords: </p>
+    </div>
 
     <script>
         var Anchors = document.getElementsByTagName("a");
@@ -113,27 +155,11 @@
         if (path.hash == '') {
             path = "tiles"
         }
-
-        console.log(path)
         unmined.map('map', UnminedMapProperties, UnminedRegions, path);
-        var observer = new MutationObserver(function (mutations) {
-            mutations.forEach(function (mutation) {
-                var pos = mutation.target.textContent
-                pos.split(", ")
-                pos = pos.split(", ");
-                let x = Math.round(parseInt(pos[0])/8)
-                let y = Math.round(parseInt(pos[1])/8)
-                document.getElementById("N_Cords").innerHTML = "Nether Cords: " + x +", " + y
 
-            });
-        });
 
-        var config = { characterData: true, subtree: true };
-        observer.observe(document.getElementsByClassName("ol-mouse-position")[0], config);
-
-        var pos1 = document.getElementsByClassName("ol-mouse-position")[0]
-        console.log(pos1.innerHTML)
     </script>
+
 </body>
 
 </html>
